@@ -28,7 +28,7 @@
 .expand-leave-active {
   transition-property: opacity, height;
   transition-duration: 350ms;
-  transition-timing-function: ease-in;
+  transition-timing-function: ease;
   overflow: hidden;
 }
 

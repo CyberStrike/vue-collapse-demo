@@ -12,13 +12,7 @@ module.exports = {
     yoda: ['error', 'always'],
     'vue/max-attributes-per-line': ['off'],
     // don't require .vue extension when importing
-    'import/extensions': [
-      'error',
-      'always',
-      'ignorePackages',
-      { js: 'never', vue: 'never' }
-    ],
-
+    'import/extensions': [ 'error', 'ignorePackages', { js: 'never', vue: 'never' } ],
     // disallow reassignment of function parameters
     // disallow parameter object manipulation except for specific exclusions
     'no-param-reassign': [

@@ -2,6 +2,7 @@
   "name": "vue-collapse",
   "version": "0.1.0",
   "private": true,
+  "eslintConfig": ".eslintrc.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -9,7 +10,6 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "@vue/test-utils": "1.0.0-beta.30",
     "bootstrap": "4.4.1",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
@@ -21,9 +21,15 @@
     "@vue/cli-plugin-unit-jest": "^3.0.5",
     "@vue/cli-service": "^3.0.5",
     "@vue/eslint-config-standard": "^3.0.5",
-    "@vue/test-utils": "^1.0.0-beta.20",
+    "@vue/test-utils": "1.0.0-beta.30",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
+    "eslint": ">=5.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": ">=7.0.0",
+    "eslint-plugin-promise": ">=4.0.0",
+    "eslint-plugin-standard": ">=4.0.0",
+    "eslint-plugin-vue": "^6.1.2",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.17"
