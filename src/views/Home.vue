@@ -1,97 +1,112 @@
 <template>
   <div class="home">
-    <div class="container">
-      <div class="accordion" id="accordionExample">
-        <div class="card">
-          <div class="card-header" id="headingOne">
-            <h2 class="mb-0">
-              <button @click="showItemOne = !showItemOne " class="btn btn-link" type="button">Collapsible Group Item #1</button>
-            </h2>
-          </div>
-          <transition-collapse>
-            <div v-if="showItemOne" class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+    <div class="container pt-5">
+      <div class="col col-md-10 mx-auto">
+        <div class="accordion">
+          <div class="card bg-transparent border">
+            <div class="card-header d-flex align-items-center justify-content-between" data-target="one" @click="toggle">
+              <span class="btn btn-link font-weight-bold px-0">
+                Jumps On Close
+              </span>
+              <i :class="['fas text-primary',  iconClass('one')]"></i>
             </div>
-          </transition-collapse>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingTwo">
-            <h2 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseTwo"
-                aria-expanded="false"
-                aria-controls="collapseTwo"
-              >Collapsible Group Item #2</button>
-            </h2>
+            <transition-collapse>
+              <div class="card-body text-white pt-0" v-if="this.shouldShow('one')">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </transition-collapse>
           </div>
-          <div>
-            <div
-              class="card-body"
-            >Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+          <div class="card bg-transparent border">
+            <div class="card-header d-flex align-items-center justify-content-between" data-target="two" @click="toggle">
+              <span class="btn btn-link font-weight-bold px-0">
+                Transitions Smoothly
+              </span>
+              <i :class="['fas text-primary',  iconClass('two')]"></i>
+            </div>
+            <transition-collapse>
+              <div v-show="this.shouldShow('two')">
+                <div class="card-body text-white pt-0">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                  moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                  shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                  proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </transition-collapse>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingThree">
-            <h2 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseThree"
-                aria-expanded="false"
-                aria-controls="collapseThree"
-              >Collapsible Group Item #3</button>
-            </h2>
-          </div>
-          <div
-            id="collapseThree"
-            class="collapse"
-            aria-labelledby="headingThree"
-            data-parent="#accordionExample"
-          >
-            <div
-              class="card-body"
-            >Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+          <div class="card bg-transparent border" >
+            <div class="card-header d-flex align-items-center justify-content-between" data-target="three" @click="toggle">
+              <span class="btn btn-link font-weight-bold px-0">
+                Transitions Smoothly
+              </span>
+              <i :class="['fas text-primary',  iconClass('three')]"></i>
+            </div>
+            <transition-collapse>
+              <div v-show="this.shouldShow('three')">
+                <div class="card-body text-white pt-0">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                  moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                  shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                  proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </transition-collapse>
           </div>
         </div>
       </div>
-      </div>
-      <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-      </div>
-      <button class="btn btn-warning" @click="show = !show">toggle</button>
-      <transition-collapse>
-        <ul v-if="show" class="list-group">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-      </transition-collapse>
     </div>
-    <!-- <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-  import TransitionCollapse from '@/components/TransitionCollapse'
+import TransitionCollapse from '@/components/TransitionCollapse'
 
-  export default {
-    name: 'home',
-    data: () => ({
-      show: false,
-      showItemOne: false
-    }),
-    components: {
-      TransitionCollapse
+export default {
+  name: 'home',
+  data: () => ({
+    show: []
+  }),
+  components: {
+    TransitionCollapse
+  },
+  methods: {
+    // toggle (e) {
+    //   this.show = e.target.dataset.target || e.target.parentElement.dataset.target
+    // }
+    toggle (e) {
+      const target = e.target.dataset.target || e.target.parentElement.dataset.target
+      if (this.shouldShow(target)) return this.removeFromShow(target)
+      this.addToShow(target)
+    },
+    addToShow (target) {
+      this.show.push(target)
+    },
+    removeFromShow (target) {
+      this.show = this.show.filter((t) => t !== target)
+    },
+    shouldShow (target) {
+      return this.show.includes(target)
+    },
+    iconClass (target) {
+      if (this.shouldShow(target)) return 'fa-minus'
+      return 'fa-plus'
     }
   }
+}
 </script>
+
+<style>
+  .card-header {
+    cursor: pointer;
+  }
+</style>

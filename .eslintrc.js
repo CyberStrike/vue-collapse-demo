@@ -7,12 +7,12 @@ module.exports = {
     parser: 'babel-eslint'
   },
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-console': 'production' === process.env.NODE_ENV ? 'error' : 'off',
+    'no-debugger': 'production' === process.env.NODE_ENV ? 'error' : 'off',
     yoda: ['error', 'always'],
     'vue/max-attributes-per-line': ['off'],
     // don't require .vue extension when importing
-    'import/extensions': [ 'error', 'ignorePackages', { js: 'never', vue: 'never' } ],
+    'import/extensions': [ 'error', { ignorePackages: true, 'js': 'never', 'vue': 'never' } ],
     // disallow reassignment of function parameters
     // disallow parameter object manipulation except for specific exclusions
     'no-param-reassign': [
@@ -33,21 +33,10 @@ module.exports = {
         optionalDependencies: ['test/unit/index.js']
       }
     ],
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // allow alignment of import from statement, allow alignment of assignment in variables
     'no-multi-spaces': [
       'error',
       { exceptions: { VariableDeclarator: true, ImportDeclaration: true } }
     ]
-  },
-  overrides: [
-    {
-      files: ['*.vue'],
-      rules: {
-        indent: 'off',
-        'vue/script-indent': ['error', 2, { baseIndent: 1 }]
-      }
-    }
-  ]
+  }
 }
